@@ -1,1 +1,1 @@
-# publicJekyll
+# GitHub page for my blog
