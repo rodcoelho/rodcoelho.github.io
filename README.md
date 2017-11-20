@@ -1,1 +1,1 @@
-# GitHub page for my blog
+# GitHub Pages
