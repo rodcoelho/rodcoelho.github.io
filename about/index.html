@@ -5,11 +5,55 @@ title: About
 	<h1>{{ page.title }}</h1>
 
     <body>
-    <p> In January 2017, I officially automated my sales job at Cloudera.</p>
-    <p> What took 8 hours, I did in 20 minutes.</p>
-    <p> I used the rest of 2017 to learn Python and plan my career change.</p>
-    <p></p>
+    <p> In May 2016, I officially automated my sales job at Cloudera - what took 8 hours, I did in 20 minutes.</p>
+    <p> I used the next year to enhance my Python skill-set and plan my career change.</p>
+    <br>
     <p> Evidence? </p>
-    <p> See my <a href="https://github.com/rodcoelho">GitHub</a> for projects and my stab at some fun <a href="https://github.com/rodcoelho/python_practice">algorithms</a>. </p>
-    <p></p>
+    <p> See my <a href="https://github.com/rodcoelho">GitHub</a> for projects and my stab at some fun <a href="https://github.com/rodcoelho/python_practice">algorithms</a> - as well as this little timeline below. </p>
+    <br>
+
     </body>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['gantt']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Task ID');
+      data.addColumn('string', 'Task Name');
+      data.addColumn('string', 'Resource');
+      data.addColumn('date', 'Start Date');
+      data.addColumn('date', 'End Date');
+      data.addColumn('number', 'Duration');
+      data.addColumn('number', 'Percent Complete');
+      data.addColumn('string', 'Dependencies');
+
+      data.addRows([
+        ['Python Basics', 'Python Basics', 'Cloudera',
+         new Date(2016, 3, 1), new Date(2017, 10, 1), null, 100, null],
+         ['MVC & SQL', 'MVC & SQL', 'Byte',
+         new Date(2017, 10, 1), new Date(2017, 12, 15), null, 100, null],
+         ['Flask & Django', 'Flask & Django', 'Byte',
+         new Date(2017, 12, 15), new Date(2018, 2, 4), null, 100, null],
+         ['Pandas & Numpy', 'Pandas & Numpy', 'Byte',
+         new Date(2018, 2, 4), new Date(2018, 3, 2), null, 100, null]
+      ]);
+
+      var options = {
+        height: 400,
+        gantt: {
+          trackHeight: 30
+        }
+      };
+
+      var chart = new google.visualization.Gantt(document.getElementById('chart_div'));
+
+      chart.draw(data, options);
+    }
+  </script>
+
+<body>
+  <div id="chart_div"></div>
+</body>
